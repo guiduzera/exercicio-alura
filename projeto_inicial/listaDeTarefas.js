@@ -43,6 +43,7 @@ const concluirTarefa = (evento) =>{
 const BotaoDeleta = () =>{
     const botaoDeleta = document.createElement('button')
     botaoDeleta.innerText = 'deletar'
+    
     botaoDeleta.addEventListener('click', deletarTarefa)
 
     
