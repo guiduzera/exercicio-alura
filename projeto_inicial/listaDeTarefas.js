@@ -13,6 +13,7 @@
     lista.appendChild(Tarefa)
     Tarefa.innerHTML = Conteudo
     Tarefa.appendChild(botaoConcluirTarefas())
+    Tarefa.appendChild(DeleteButton())
     
 
     
@@ -40,24 +41,18 @@ const concluirTarefa = (evento) =>{
     tarefaCompleta.classList.toggle('done')
 }
 
-const BotaoDeleta = () =>{
-    const botaoDeleta = document.createElement('button')
-    botaoDeleta.innerText = 'deletar'
-    
-    botaoDeleta.addEventListener('click', deletarTarefa)
+function DeleteButton() {
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete-button')
+    deleteButton.innerText = 'delete'
+    deleteButton.addEventListener('click', deleteTask)
 
-    
-    
-
+    return deleteButton
 }
 
-const deletarTarefa = (evento) =>{
-    const botaodeleta = evento.target
-
-    const deletarTarefa = botaodeleta.parentElement
-
-    deletarTarefa.remove()
-    
-    return botaodeleta
+const deleteTask = (evento) => {
+    const locateTarget = evento.target
+    const deletedTask = locateTarget.parentElement
+    deletedTask.remove()
 }
 })()
